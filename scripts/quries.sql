@@ -10,6 +10,6 @@ spark.sql("SHOW NAMESPACES IN s3tablesbucket").show()
 
 spark.sql("""
   SELECT Branch, AVG(Total) AS avg_total_per_branch
-  FROM s3tablesbucket.supermarkete_data.sales
+  FROM s3tablesbucket.supermarket_data.sales
   GROUP BY Branch
 """).show()
