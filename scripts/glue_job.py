@@ -25,10 +25,8 @@ job = Job(glueContext)
 name_space = "supermarket_data"
 table_name = "sales"
 
-# Creating a new namespace if it does not exist
 spark.sql(f"CREATE NAMESPACE IF NOT EXISTS {name_space}")
 
-# Creating a new table in the namespace
 query = f"""
     CREATE TABLE IF NOT EXISTS {name_space}.{table_name} (
         invoice_id STRING,
@@ -53,7 +51,6 @@ query = f"""
 """
 spark.sql(query)
 
-# Read CSV file and rename column names
 df = spark.read.format("csv") \
     .option("header", "true") \
     .option("inferSchema", "true") \
